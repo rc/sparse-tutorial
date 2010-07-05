@@ -2,12 +2,16 @@ Introduction
 ============
 
 (dense) matrix is:
+
 * mathematical object
 * data structure for storing a 2D array of values
 
 important features:
+
 * memory allocated once for all items
+
   * usually a contiguous chunk, think NumPy ndarray
+
 * *fast* access to individual items (*)
 
 Sparse Matrices vs. Sparse Matrix Storage Schemes
@@ -22,8 +26,12 @@ Typical Applications
 --------------------
 
 * solution of partial differential equations (PDEs)
+
   * the *finite element method*
   * mechanical engineering, electrotechnics, physics, ...
+
 * graph theory
+
   * nonzero at $(i, j)$ means that node $i$ is connected to node $j$
+
 * ...

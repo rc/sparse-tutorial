@@ -20,8 +20,10 @@ Storage Schemes
   >>> import matplotlib.pyplot as plt
 
 * **warning** for NumPy users:
+
   * the multiplication with '*' is the *matrix multiplication* (dot product)
   * not part of NumPy!
+
     * passing a sparse matrix object to NumPy functions expecting
       ndarray/matrix does not work
 
@@ -29,20 +31,26 @@ Common Methods
 --------------
 
 * all scipy.sparse classes are subclasses of :class:`spmatrix`
+
   * default implementation of arithmetic operations
+
     * always converts to CSR
     * subclasses override for efficiency
+
   * shape, data type set/get
   * nonzero indices
-  * format conversion, interaction with NumPy (toarray(), todense())
+  * format conversion, interaction with NumPy (`toarray()`, `todense()`)
   * ...
+
 * attributes:
-  * mtx.A - same as mtx.toarray()
-  * mtx.T - transpose (same as mtx.transpose())
-  * mtx.H - Hermitian (conjugate) transpose
-  * mtx.real - real part of complex matrix
-  * mtx.imag - imaginary part of complex matrix
-  * mtx.size - the number of nonzeros (same as self.getnnz())
+
+  * `mtx.A` - same as mtx.toarray()
+  * `mtx.T` - transpose (same as mtx.transpose())
+  * `mtx.H` - Hermitian (conjugate) transpose
+  * `mtx.real` - real part of complex matrix
+  * `mtx.imag` - imaginary part of complex matrix
+  * `mtx.size` - the number of nonzeros (same as self.getnnz())
+
 * data usually stored in NumPy arrays
 
 .. toctree::
