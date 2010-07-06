@@ -9,6 +9,7 @@ Contents:
    introduction
    storage_schemes
    solvers
+   other_packages
 
 * :ref:`genindex`
 * :ref:`modindex`

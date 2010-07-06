@@ -101,7 +101,8 @@ Eigenvalue Problem Solvers
           solve large scale eigenvalue problems
     * ``lobpcg`` (Locally Optimal Block Preconditioned Conjugate
       Gradient Method)
-        * works very well in combination with `PyAMG <>`_
+        * works very well in combination with `PyAMG
+          <http://code.google.com/p/pyamg/>`_
 
 * example by Nils Wagner:
 
