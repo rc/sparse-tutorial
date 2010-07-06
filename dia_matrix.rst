@@ -3,29 +3,22 @@ Diagonal Format (DIA)
 
 * very simple scheme
 * diagonals in dense NumPy array of shape `(n_diag, length)`
-
-  * fixed length -> waste space a bit when far from main diagonal
-
+    * fixed length -> waste space a bit when far from main diagonal
 * offset for each diagonal
-
-  * 0 is the main diagonal
-  * negative offset = below
-  * positive offset = above
+    * 0 is the main diagonal
+    * negative offset = below
+    * positive offset = above
 * fast matrix * vector (sparsetools)
 * constructor accepts:
-
-  * dense matrix (array)
-  * sparse matrix
-  * shape tuple (create empty matrix)
-  * `(data, offsets)` tuple
-
+    * dense matrix (array)
+    * sparse matrix
+    * shape tuple (create empty matrix)
+    * `(data, offsets)` tuple
 * no slicing, no individual item access
 * use:
-
-  * rather specialized
-  * solving PDEs by finite differences
-  * with an iterative solver
-
+    * rather specialized
+    * solving PDEs by finite differences
+    * with an iterative solver
 * examples::
 
     >>> data = np.array([[1, 2, 3, 4]]).repeat(3, axis=0)
@@ -50,6 +43,12 @@ Diagonal Format (DIA)
            [ 5,  6,  7,  8],
            [ 9, 10, 11, 12]])
     >>> mtx = sps.dia_matrix((data, offsets), shape=(4, 4))
+    >>> mtx.data
+    array([[ 1,  2,  3,  4],
+           [ 5,  6,  7,  8],
+           [ 9, 10, 11, 12]])
+    >>> mtx.offsets
+    array([ 0, -1,  2])
     >>> print mtx
       (0, 0)        1
       (1, 1)        2
@@ -65,12 +64,6 @@ Diagonal Format (DIA)
             [ 5,  2,  0, 12],
             [ 0,  6,  3,  0],
             [ 0,  0,  7,  4]])
-    >>> mtx.data
-    array([[ 1,  2,  3,  4],
-           [ 5,  6,  7,  8],
-           [ 9, 10, 11, 12]])
-    >>> mtx.offsets
-    array([ 0, -1,  2])
 
 * explanation with a scheme::
 
@@ -83,7 +76,6 @@ Diagonal Format (DIA)
         -2:  .  6  3  .
         -3:  .  .  7  4
              ---------8
-
 
 * matrix-vector multiplication
 

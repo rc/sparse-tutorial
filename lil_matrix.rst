@@ -2,28 +2,19 @@ List of Lists Format (LIL)
 ==========================
 
 * row-based linked list
-
-  * each row is a Python list (sorted) of column indices of non-zero elements
-  * rows stored in a NumPy array (`dtype=np.object`)
-  * non-zero values data stored analogously
-
+    * each row is a Python list (sorted) of column indices of non-zero elements
+    * rows stored in a NumPy array (`dtype=np.object`)
+    * non-zero values data stored analogously
 * efficient for constructing sparse matrices incrementally
-
 * constructor accepts:
-
-  * dense matrix (array)
-  * sparse matrix
-  * shape tuple (create empty matrix)
-
+    * dense matrix (array)
+    * sparse matrix
+    * shape tuple (create empty matrix)
 * flexible slicing, changing sparsity structure is efficient
-
 * slow arithmetics, slow column slicing due to being row-based
-
 * use:
-
-  * when sparsity pattern is not known apriori or changes
-  * example: reading a sparse matrix from a text file
-
+    * when sparsity pattern is not known apriori or changes
+    * example: reading a sparse matrix from a text file
 * examples::
 
     >>> mtx = sps.lil_matrix((4, 3))

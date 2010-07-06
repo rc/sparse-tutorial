@@ -4,7 +4,7 @@ Sparse Matrices in SciPy
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    introduction
    storage_schemes
