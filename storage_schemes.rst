@@ -43,6 +43,9 @@ Common Methods
     * `mtx.size` - the number of nonzeros (same as self.getnnz())
 * data usually stored in NumPy arrays
 
+Sparse Matrix Classes
+---------------------
+
 .. toctree::
    :maxdepth: 2
 
@@ -53,3 +56,75 @@ Common Methods
    csr_matrix
    csc_matrix
    bsr_matrix
+
+Summary
+-------
+
+.. list-table:: Summary of storage schemes.
+   :widths: 10 10 10 10 10 10 10 30
+   :header-rows: 1
+
+   * - format
+     - matrix * vector
+     - get item
+     - fancy get
+     - set item
+     - fancy set
+     - solvers
+     - note
+   * - DIA
+     - sparsetools
+     - -
+     - -
+     - -
+     - -
+     - iterative
+     - specialized
+   * - LIL
+     - via CSR
+     - yes
+     - yes
+     - yes
+     - yes
+     - iterative
+     - arithmetic via CSR, incremental construction
+   * - DOK
+     - python
+     - yes
+     - one axis only
+     - yes
+     - yes
+     - iterative
+     - O(1) item access, incremental construction
+   * - COO
+     - sparsetools
+     - -
+     - -
+     - -
+     - -
+     - iterative
+     - has data array, facilitates fast conversion
+   * - CSR
+     - sparsetools
+     - yes
+     - yes
+     - slow
+     - -
+     - any
+     - has data array, fast row-wise ops
+   * - CSC
+     - sparsetools
+     - yes
+     - yes
+     - slow
+     - -
+     - any
+     - has data array, fast column-wise ops
+   * - BSR
+     - sparsetools
+     - -
+     - -
+     - -
+     - -
+     - specialized
+     - has data array, specialized
