@@ -15,26 +15,65 @@ List of Lists Format (LIL)
 * use:
     * when sparsity pattern is not known apriori or changes
     * example: reading a sparse matrix from a text file
-* examples::
 
-    >>> mtx = sps.lil_matrix((4, 3))
+Examples
+--------
+
+* create an empty LIL matrix::
+
+    >>> mtx = sps.lil_matrix((4, 5))
+
+* prepare random data::
+
+    >>> from numpy.random import rand
+    >>> data = np.round(rand(2, 3))
+    >>> data
+    array([[ 0.,  0.,  1.],
+           [ 0.,  0.,  1.]])
+
+* assign the data using fancy indexing::
+
+    >>> mtx[:2, [1, 2, 3]] = data
     >>> mtx
-    <4x3 sparse matrix of type '<type 'numpy.float64'>'
-            with 0 stored elements in LInked List format>
-    >>> mtx[3,1] = 2
-    >>> mtx
-    <4x3 sparse matrix of type '<type 'numpy.float64'>'
-            with 1 stored elements in LInked List format>
+    <4x5 sparse matrix of type '<type 'numpy.float64'>'
+            with 2 stored elements in LInked List format>
     >>> print mtx
-      (3, 1)        2.0
+      (0, 3)        1.0
+      (1, 3)        1.0
     >>> mtx.todense()
-    matrix([[ 0.,  0.,  0.],
-            [ 0.,  0.,  0.],
-            [ 0.,  0.,  0.],
-            [ 0.,  2.,  0.]])
-    >>> mtx[:,1]
-    <4x1 sparse matrix of type '<type 'numpy.float64'>'
-            with 1 stored elements in LInked List format>
-    >>> mtx[1,:]
-    <1x3 sparse matrix of type '<type 'numpy.int32'>'
-            with 0 stored elements in LInked List format>
+    matrix([[ 0.,  0.,  0.,  1.,  0.],
+            [ 0.,  0.,  0.,  1.,  0.],
+            [ 0.,  0.,  0.,  0.,  0.],
+            [ 0.,  0.,  0.,  0.,  0.]])
+    >>> mtx.toarray()
+    array([[ 0.,  0.,  0.,  1.,  0.],
+           [ 0.,  0.,  0.,  1.,  0.],
+           [ 0.,  0.,  0.,  0.,  0.],
+           [ 0.,  0.,  0.,  0.,  0.]])
+
+* more slicing and indexing::
+
+    >>> mtx = sps.lil_matrix([[0, 1, 2, 0], [3, 0, 1, 0], [1, 0, 0, 1]])
+    >>> mtx.todense()
+    matrix([[0, 1, 2, 0],
+            [3, 0, 1, 0],
+            [1, 0, 0, 1]])
+    >>> print mtx
+      (0, 1)        1
+      (0, 2)        2
+      (1, 0)        3
+      (1, 2)        1
+      (2, 0)        1
+      (2, 3)        1
+    >>> mtx[:2, :]
+    <2x4 sparse matrix of type '<type 'numpy.int32'>'
+            with 4 stored elements in LInked List format>
+    >>> mtx[:2, :].todense()
+    matrix([[0, 1, 2, 0],
+            [3, 0, 1, 0]])
+    >>> mtx[1:2, [0,2]].todense()
+    matrix([[3, 1]])
+    >>> mtx.todense()
+    matrix([[0, 1, 2, 0],
+            [3, 0, 1, 0],
+            [1, 0, 0, 1]])

@@ -19,7 +19,11 @@ Diagonal Format (DIA)
     * rather specialized
     * solving PDEs by finite differences
     * with an iterative solver
-* examples::
+
+Examples
+--------
+
+* create some DIA matrices::
 
     >>> data = np.array([[1, 2, 3, 4]]).repeat(3, axis=0)
     >>> data
