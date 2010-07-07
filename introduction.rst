@@ -16,7 +16,7 @@ Sparse Matrices vs. Sparse Matrix Storage Schemes
 -------------------------------------------------
 
 * sparse matrix is a matrix, which is *almost empty*
-* storing all the zeros is wasteful $\rightarrow$ store only nonzero items
+* storing all the zeros is wasteful -> store only nonzero items
 * pros: huge memory savings
 * cons: depends on actual storage scheme, (*) usually does not hold
 

@@ -11,6 +11,4 @@ Contents:
    solvers
    other_packages
 
-* :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
