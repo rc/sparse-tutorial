@@ -4,11 +4,15 @@ Diagonal Format (DIA)
 * very simple scheme
 * diagonals in dense NumPy array of shape `(n_diag, length)`
     * fixed length -> waste space a bit when far from main diagonal
+    * subclass of :class:`_data_matrix` (sparse matrix classes with
+      `.data` attribute)
 * offset for each diagonal
     * 0 is the main diagonal
     * negative offset = below
     * positive offset = above
 * fast matrix * vector (sparsetools)
+* fast and easy item-wise operations
+    * manipulate data array directly (fast NumPy machinery)
 * constructor accepts:
     * dense matrix (array)
     * sparse matrix

@@ -41,6 +41,7 @@ Common Methods
     * `mtx.real` - real part of complex matrix
     * `mtx.imag` - imaginary part of complex matrix
     * `mtx.size` - the number of nonzeros (same as self.getnnz())
+    * `mtx.shape` - the number of rows and columns (tuple)
 * data usually stored in NumPy arrays
 
 Sparse Matrix Classes
@@ -79,7 +80,7 @@ Summary
      - -
      - -
      - iterative
-     - specialized
+     - has data array, specialized
    * - LIL
      - via CSR
      - yes
@@ -87,7 +88,7 @@ Summary
      - yes
      - yes
      - iterative
-     - arithmetic via CSR, incremental construction
+     - arithmetics via CSR, incremental construction
    * - DOK
      - python
      - yes
