@@ -103,6 +103,13 @@ Eigenvalue Problem Solvers
       Gradient Method)
         * works very well in combination with `PyAMG
           <http://code.google.com/p/pyamg/>`_
+	* example by Nathan Bell:
+
+	  .. literalinclude:: examples/pyamg_with_lobpcg.py
+
+
+        * :download:`examples/pyamg_with_lobpcg.py`
+
 
 * example by Nils Wagner:
 
